@@ -1,0 +1,60 @@
+@font-face {
+  font-family: "local doto";
+  src: url("../../assets/doto.ttf") format("truetype");
+}
+@font-face {
+  font-family: "local source code";
+  src: url("../../assets/source-code.ttf") format("truetype");
+}
+@font-face {
+  font-family: "local nunito";
+  src: url("../../assets/nunito.ttf") format("truetype");
+}
+
+:root {
+  /*primary || tertiary */
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  /*secondary*/
+  --color-charcoal: #0a0a0a;
+  --color-ivory: #f5f5f5;
+
+  /*accent*/
+  --color-orange: #ff4304;
+  --color-green: #8ae500;
+
+  /*set colors to light mode*/
+  --primary-color: var(--color-white);
+  --secondary-color: var(--color-ivory);
+  --tertiary-color: var(--color-black);
+  --accent-color: var(--color-orange);
+
+  /* dark & light mode svg url*/
+  --mode-svg: url("../assets/light-mode.svg");
+  --copy-svg: url("../assets/copy-light.svg");
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-display: block;
+}
+
+* button:hover,
+* a:hover {
+  cursor: pointer;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    /*set colors to dark mode*/
+    --primary-color: var(--color-black);
+    --secondary-color: var(--color-charcoal);
+    --tertiary-color: var(--color-white);
+    --accent-color: var(--color-green);
+  }
+}

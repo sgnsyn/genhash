@@ -1,0 +1,413 @@
+@import url("../utils/css/utils.css");
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "local nunito";
+  position: relative;
+  height: 34rem;
+  width: 19rem;
+  overflow: hidden;
+  background: var(--primary-color);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.theme-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-block: 0.875rem;
+  padding-inline: 1.3125rem;
+}
+
+.mode-btn {
+  --svg-size: 1.125rem;
+  background: var(--mode-svg) center center / contain no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: var(--svg-size);
+  width: var(--svg-size);
+  border: none;
+  transition: background 0.2s ease-in-out;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.8125rem;
+}
+
+.nav-btn {
+  position: relative;
+  background: transparent;
+  border: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 0.3125rem;
+  color: var(--tertiary-color);
+  transition: color 0.1s linear;
+}
+
+.nav-btn::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 0.125rem;
+  background: var(--accent-color);
+  transition: width 0.2s ease-in-out;
+}
+
+.nav-btn.active {
+  color: var(--accent-color);
+}
+
+.nav-btn.active:hover {
+  cursor: initial;
+}
+
+.nav-btn:not(.active):hover {
+  color: gray;
+}
+
+.nav-btn.active::before {
+  width: 50%;
+}
+
+.res-container {
+  position: relative;
+  height: 7.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1.625rem;
+  background: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease-in-out;
+}
+
+.gen-res-contianer,
+.hash-res-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  max-width: 15.625rem;
+}
+
+.res-bottom-contianer {
+  padding-block: 0.9375rem;
+  display: flex;
+  width: 100%;
+}
+
+.gen-output {
+  margin-top: 2.25rem;
+  font-family: "local doto";
+  color: var(--primary-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 13ch;
+  font-size: 1.65rem;
+  font-weight: bold;
+  transition: color 0.2s ease-in-out;
+}
+
+.copy-btn {
+  margin-left: auto;
+  --svg-size: 1.0625rem;
+  height: var(--svg-size);
+  width: var(--svg-size);
+  background: var(--copy-svg);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 0.4375rem;
+  transition:
+    background 0.2s ease-in-out,
+    scale 0.1s ease-in-out;
+}
+
+.copy-btn:hover {
+  scale: 1.2;
+}
+
+.copy-btn:active {
+  scale: 1;
+}
+
+/* Generate Section */
+.gen-config-container {
+  padding-block: 0.625rem 1.5625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.gen-config-container > div:first-child {
+  width: 100%;
+}
+
+.configs-container {
+  margin-bottom: 0.9375rem;
+  width: 100%;
+  max-width: 18.75rem;
+  padding-inline: 1.6875rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.config-label {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--tertiary-color);
+  transition: color 0.2s ease-in-out;
+}
+
+.toggle-btn {
+  position: relative;
+  height: 1rem;
+  width: 1.6475rem;
+  background: var(--primary-color);
+  border: 1px solid var(--tertiary-color);
+  border-radius: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease-in-out;
+}
+
+.toggle-btn::before {
+  content: "";
+  position: absolute;
+  left: 0.1875rem;
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 50%;
+  background: var(--tertiary-color);
+  transition: left 0.2s ease-in-out;
+}
+
+.toggle-btn.active {
+  background: var(--accent-color);
+}
+
+.toggle-btn.active::before {
+  left: calc(100% - 0.7375rem);
+  background: var(--primary-color);
+}
+
+.psk-len-inp {
+  position: relative;
+  border: 1px solid var(--tertiary-color);
+  border-radius: 0.1875rem;
+  width: 4ch;
+  background: var(--primary-color);
+  color: var(--tertiary-color);
+  padding-inline: 0.3125ch;
+  font-weight: bold;
+  transition: color 0.2s ease-in-out;
+}
+
+.psk-len-inp::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.psk-len-inp {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.psk-len-inp::-moz-spin-button {
+  -moz-appearance: none;
+}
+
+.gen-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.9375rem;
+  padding: 0.9375rem 2.1875rem;
+  border-radius: 100vw;
+  color: var(--primary-color);
+  background: var(--accent-color);
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  transition: outline 0.1s ease-in-out;
+}
+
+.gen-button:hover {
+  outline: 1px solid var(--accent-color);
+}
+
+.gen-button:active {
+  outline: none;
+}
+
+/* Generate Section End */
+
+/* Hash Section */
+.hash-inp {
+  font-family: "local source code";
+  width: 100%;
+  padding-block: 0.625rem 0.3125rem;
+  margin-top: 0.625rem;
+  margin-inline: 0.3125rem;
+  font-size: 1.125rem;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--accent-color);
+  color: var(--primary-color);
+  background: var(--accent-color);
+}
+
+.hash-inp::placeholder {
+  color: var(--primary-color);
+  font-style: oblique;
+  font-family: "local doto";
+  font-weight: bold;
+}
+
+.hash-inp:focus {
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.hash-output {
+  color: var(--primary-color);
+  font-family: "local source code";
+  overflow: hidden;
+  font-weight: bold;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  max-width: 26ch;
+  user-select: none;
+}
+
+.hash-mode-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-bottom: 1.625rem;
+  max-width: 18.75rem;
+  padding-inline: 0.5rem;
+}
+
+.hash-mode {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 10ch;
+  padding: 0.3125rem 0.40625rem;
+  color: var(--tertiary-color);
+  background: transparent;
+  text-transform: uppercase;
+  font-size: 0.6rem;
+  font-weight: bolder;
+  border-radius: 50vw;
+  border: none;
+  outline-color: var(--accent-color);
+  overflow: hidden;
+}
+
+.hash-mode::before {
+  content: "";
+  position: absolute;
+  height: 0%;
+  width: 0%;
+  background: var(--accent-color);
+  z-index: -1;
+  transition:
+    height 0.1s ease-in-out,
+    width 0.1s ease-in-out;
+}
+
+.hash-mode:not(.active):hover {
+  text-decoration: underline;
+  color: gray;
+}
+
+.hash-mode.active {
+  color: var(--primary-color);
+}
+
+.hash-mode.active::before {
+  height: 100%;
+  width: 100%;
+}
+
+.hash-type-container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.625rem;
+  max-width: 18.75rem;
+  padding-inline: 2.25rem;
+}
+
+.hash-type-btn {
+  height: 3.625rem;
+  width: 4.125rem;
+  font-size: 0.6rem;
+  font-weight: bold;
+  border: 1px solid var(--tertiary-color);
+  border-radius: 0.625rem;
+  color: var(--tertiary-color);
+  background: var(--secondary-color);
+  transition: background 0.1s ease-in-out;
+}
+
+.hash-type-btn.active {
+  background: var(--accent-color);
+  color: var(--primary-color);
+  border-color: var(--accent-color);
+}
+
+.hash-type-btn:not(.active):hover {
+  border-color: var(--primary-color);
+  outline: 1px solid gray;
+  color: gray;
+}
+
+/* Hash Section End */
+
+/* Terms and About */
+.terms_about-container {
+  position: absolute;
+  width: 100%;
+  padding: 0.875rem;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9375rem;
+}
+
+.links {
+  color: var(--tertiary-color);
+  text-transform: capitalize;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+.links:hover {
+  color: gray;
+}

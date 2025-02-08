@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="popup.css" />
+    <script src="popup.js" type="module" defer></script>
+</head>
+
+<body>
+    <div class="theme-container">
+        <button class="mode-btn" id="mode-btn" data-mode="light"></button>
+    </div>
+
+    <div class="nav">
+        <button class="nav-btn active" id="nav-btn-gen" data-view="gen">Generate</button>
+        <button class="nav-btn" id="nav-btn-hash" data-view="hash">Hash</button>
+    </div>
+
+    <div class="res-container">
+        <div class="hash-res-container hidden">
+            <input type="text" placeholder="type here..." class="hash-inp" id="hash-inp" spellcheck="false">
+            <div class="res-bottom-contianer">
+                <p class="hash-output" id="hash-output"></p>
+                <button class="copy-btn" id="copy-btn-hash">
+            </div>
+            </input>
+        </div>
+        <div class="gen-res-contianer">
+            <p class="gen-output"></p>
+            <div class="res-bottom-contianer">
+                <button class="copy-btn" id="copy-btn-gen">
+            </div>
+            </button>
+        </div>
+    </div>
+
+    <div class="hash-config-container hidden">
+        <div class="hash-mode-container"></div>
+        <div class="hash-type-container">
+            <button class="hash-type-btn" data-name="CRC">CRC</button>
+            <button class="hash-type-btn active" data-name="MD">MD</button>
+            <button class="hash-type-btn" data-name="SHA-1">SHA-1</button>
+            <button class="hash-type-btn" data-name="SHA-2">SHA-2</button>
+            <button class="hash-type-btn" data-name="SHA2-512">SHA2-512</button>
+            <button class="hash-type-btn" data-name="SHA-3">SHA-3</button>
+            <button class="hash-type-btn" data-name="Keccak">Keccak</button>
+            <button class="hash-type-btn" data-name="SHAKE">SHAKE</button>
+        </div>
+    </div>
+
+    <div class="gen-config-container">
+        <div>
+            <div class="configs-container sp-config">
+                <label class="config-label" for="sp-toggle-btn">Special Characters</label>
+                <button class="toggle-btn active" id="toggle-sp-btn" data-name="specialCharacters"
+                    data-value="on"></button>
+            </div>
+            <div class="configs-container num-config">
+                <label class="config-label" for="num-toggle-btn">Numbers</label>
+                <button class="toggle-btn active" id="toggle-num-btn" data-name="numbers" data-value="on"></button>
+            </div>
+            <div class="configs-container len-config">
+                <label class="config-label" for="len-toggle-btn">Length</label>
+                <input type="number" min="4" max="32" value="12" id="length-inp" class="psk-len-inp" data-name="length">
+            </div>
+        </div>
+        <button class="gen-button" id="gen-btn">
+            Generate
+        </button>
+    </div>
+
+    <div class="terms_about-container">
+        <a class="links" data-id="about" href="#" blank>about</a>
+        <a class="links" data-id="terms" href="#">terms</a>
+    </div>
+
+    <script src="../utils/js/hashing algorithims/crc.js"></script>
+    <script src="../utils/js/hashing algorithims/md2.js"></script>
+    <script src="../utils/js/hashing algorithims/md4.js"></script>
+    <script src="../utils/js/hashing algorithims/md5.js"></script>
+    <script src="../utils/js/hashing algorithims/sha1.js"></script>
+    <script src="../utils/js/hashing algorithims/sha256.js"></script>
+    <script src="../utils/js/hashing algorithims/sha3.js"></script>
+    <script src="../utils/js/hashing algorithims/sha2-512.js"></script>
+    <script src="../utils/js/hash.js"></script>
+</body>
+
+</html>
