@@ -1,7 +1,7 @@
 {
   "name": "GenHash",
   "version": "0.0.1",
-  "description": "A lightweight extension that generates random strings and hashes text using well-known algorithms, locally.",
+  "description": "A lightweight extension that generates random passwords and hashes text using well-known algorithms, locally.",
   "manifest_version": 3,
 
   "action": {
